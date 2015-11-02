@@ -1,0 +1,38 @@
+body {
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #005542;
+}
+
+.row {
+	margin-top: 15px;
+
+}
+
+
+.plus {
+	font-size: 20px;
+	text-align: center;
+}
+
+.plus:hover {
+ 	text-decoration: none;
+}
+
+.navbar-inverse {
+  background-color: #005542;
+  
+}
+
+.navbar-inverse .navbar-brand {
+	color: #FFF200;
+}
+
+
+.navbar-inverse .navbar-nav .navbar-opt {
+	color: #FFFFFF;
+}
+
