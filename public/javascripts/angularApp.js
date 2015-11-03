@@ -41,10 +41,15 @@ function($scope, $stateParams, sandwiches){
 
 app.controller('MainCtrl', [
 '$scope',
+'$window',
 'sandwiches',
-function($scope,sandwiches){
+function($scope, $window, sandwiches){
 	$scope.sandwiches = sandwiches.sandwiches;
-  	$scope.test = 'Hello world!';
+  
+  $scope.scrollUp = function(){
+      $(window).scrollTop(0);
+  };
+
 }]);
 
 
