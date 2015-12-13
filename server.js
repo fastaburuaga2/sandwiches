@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
 
-var dataAPIRoutes = require('./routes/data');
+var sandwichAPIRoutes = require('./routes/sandwich');
 var authAPIRoutes = require('./routes/auth');
 
 var app = express();
@@ -25,7 +25,7 @@ mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
 });
 
-app.use('/api', dataAPIRoutes);
+app.use('/api/sandwich', sandwichAPIRoutes);
 app.use('/api', authAPIRoutes);
 
 app.get('*', function (req, res) {
