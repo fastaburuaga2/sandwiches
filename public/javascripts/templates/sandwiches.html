@@ -1,7 +1,7 @@
 <div class="page-header">
 
     <h3>Arm your Sandwich</h3>
-    <form role="form">
+    <form role="form" ng-submit="addSandwich()">
 	    <div class="container">
 	    	<h4>1. Choose a type of bread</h4>
 			<div class="row">
@@ -9,18 +9,11 @@
 					<img src="/images/breads.jpg">
 				</div>
 				<div class="col-md-6 form-group">
-					<div class="radio">
-						<label><input type="radio" ng-model="bread" value="1">9-Grain Wheat</label>
-					</div>
-					<div class="radio">
-					<label><input type="radio" ng-model="bread" value="2">9-Grain Honey Oat</label>
-					</div>
-					<div class="radio">
-					<label><input type="radio" ng-model="bread" value="3">Italian</label>
-					</div>
-					<div class="radio">
-					<label><input type="radio" ng-model="bread" value="4">Parmesan Oregano</label>
-					</div>
+
+					<li ng-repeat="bread in breads">
+				      <input type="checkbox" ng-model="bread.selected" value={{bread.name}} /> {{bread.name}}
+				    </li>
+
 					<p>(from left to right)</p>
 				</div>
 			</div>
@@ -37,10 +30,10 @@
 				</div>
 				<div class="col-md-6 form-group">
 					<div class="radio">
-						<label><input type="radio" ng-model="size" value="1">Half</label>
+						<label><input type="radio" ng-model="size" value="true">Half</label>
 					</div>
 					<div class="radio">
-					<label><input type="radio" ng-model="size" value="2">Whole</label>
+					<label><input type="radio" ng-model="size" value="false">Whole</label>
 					</div>
 				</div>
 			</div>
@@ -53,27 +46,11 @@
 					<img class="text-center" src="/images/meats.png">
 				</div>
 				<div class="col-md-6 form-group">
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="1">Sweet Onion Chicken Tariyaki</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="2">Italian B.M.T.</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="3">Turkey Breast</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="4">Tuna</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="5">Meatball Marinara</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="6">Black Forest Ham</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="meat" value="7">None</label>
-					</div>
+
+					<li ng-repeat="meat in meats">
+				      <input type="checkbox" ng-model="meat.selected" value={{meat.name}} /> {{meat.name}}
+				    </li>
+
 				</div>
 			</div>
 		</div>
@@ -81,36 +58,33 @@
 		<hr>
 
 		<div class="container">
-	    	<h4>4. Choose your vegetables</h4>
+	    	<h4>4. Choose your cheese</h4>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="text-center" style="margin-left:20px" src="/images/cheese.jpg">
+				</div>
+				<div class="col-md-6 form-group">
+						<li ng-repeat="cheese in cheeses">
+				      <input type="checkbox" ng-model="cheese.selected" value={{cheese.name}} /> {{cheese.name}}
+				    </li>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="container">
+	    	<h4>5. Choose your vegetables</h4>
 			<div class="row">
 				<div class="col-md-6">
 					<img class="text-center" style="margin-left:20px" src="/images/veggies.jpg">
 				</div>
 				<div class="col-md-6 form-group">
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="1">Lettuce</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="2">Tomatoes</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="3">Cucumbers</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="4">Pickels</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="5">Peppers</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="6">Olives</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="7">Red Onions</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox" ng-model="veggie" value="8">Jalapeños</label>
-					</div>
+
+					<li ng-repeat="vegetable in vegetables">
+				      <input type="checkbox" ng-model="vegetable.selected" value={{vegetable.name}} /> {{vegetable.name}}
+				    </li>
+
 				</div>
 			</div>
 		</div>
@@ -118,36 +92,15 @@
 		<hr>
 
 		<div class="container">
-	    	<h4>5. Choose your sauces</h4>
+	    	<h4>6. Choose your sauces</h4>
 			<div class="row">
 				<div class="col-md-6">
 					<img class="text-center" style="margin-left:20px" src="/images/sauces.png">
 				</div>
 				<div class="col-md-6 form-group">
-					<div class="checkbox">
-						<label><input type="checkbox">Honey Mustard</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Sweet Onion</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Mayonnaise</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Olive Oil Blend</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Chilli</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Ketchup</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">BBQ</label>
-					</div>
-					<div class="checkbox">
-						<label><input type="checkbox">Ranch</label>
-					</div>
+						<li ng-repeat="sauce in sauces">
+				      <input type="checkbox" ng-model="sauce.selected" value={{sauce.name}} /> {{sauce.name}}
+				    </li>
 				</div>
 			</div>
 		</div>
@@ -155,20 +108,20 @@
 		<hr>
 
 		<div class="container">
-	    	<h4>6. Add a special instruction</h4>
+	    	<h4>7. Add a special instruction</h4>
 			<div class="form-group">
 			  <label for="comment">Comment:</label>
-			  <textarea class="form-control" rows="5" id="comment"></textarea>
+			  <textarea class="form-control" rows="5" ng-model="instructions"></textarea>
 			</div>
 		</div>
 
 		<hr>
 
 		<div class="container">
-	    	<h4>7. Name your sandwich</h4>
+	    	<h4>8. Name your sandwich</h4>
 			<div class="form-group">
 			  	<label for="usr">Name:</label>
-			  	<input type="text" class="form-control" id="usr">
+			  	<input type="text" class="form-control" ng-model="name">
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</div>

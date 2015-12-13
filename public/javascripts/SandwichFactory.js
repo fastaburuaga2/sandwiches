@@ -1,4 +1,4 @@
-angular.module('sandwiches').factory('SandwichFactory', [function(){
+angular.module('sandwiches').factory('SandwichFactory', ['$http', function($http){
   var api = {};
 
   api.sandwiches = [];
@@ -23,9 +23,10 @@ angular.module('sandwiches').factory('SandwichFactory', [function(){
         return $http.post("/login", {username: username, password: password});
   };
 
-  api.createSandwich = function (username, password) {
-        // send along page information and the category type
-        return $http.post("/login", {username: username, password: password});
+
+  ////////AQUI
+  api.createSandwich = function (sandwich) {
+        return $http.post("/create", sandwich);
   };
 
   api.editSandwich = function (username, password) {
