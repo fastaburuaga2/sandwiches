@@ -4,14 +4,11 @@ angular.module('sandwiches').controller('SandwichesCtrl', [
 'SandwichFactory',
 function($scope, $stateParams, SandwichFactory){
 
-	$scope.breads = [{
-		    id: 'wheat',
-		    name: '9-Grain Wheat'
-		  },
-		  {
-		    id: 'oat',
-		    name: '9-Grain Honey Oat'
-		  },
+	$scope.breads = [
+		    {id: 'wheat', name: '9-Grain Wheat'},
+		  
+		  	{id: 'oat', name: '9-Grain Honey Oat'},
+		  
 		  {
 		    id: 'italian',
 		    name: 'Italian'
