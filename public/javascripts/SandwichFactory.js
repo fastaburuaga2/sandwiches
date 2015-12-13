@@ -5,7 +5,7 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http','$state', funct
 
   api.login = function (username, password) {
         // send along page information and the category type
-        return $http.post("/login", {userid: username, passwd: password});
+        return $http.post("/api/login", {userid: username, passwd: password});
   };
 
   api.logout = function (username, password) {
@@ -13,7 +13,7 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http','$state', funct
         return $http.get("/logout", {username: username, password: password});
   };
 
-  api.me = function (username, password) {
+  api.getUser = function (username, password) {
         // send along page information and the category type
         return $http.post("/login", {username: username, password: password});
   };

@@ -20,14 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* Uncomment when MongoLabURI set
-
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/test');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
 mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
 });
-
-*/
 
 app.use('/api', dataAPIRoutes);
 app.use('/api', authAPIRoutes);

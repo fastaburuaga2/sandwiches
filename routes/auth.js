@@ -14,7 +14,7 @@ router.post('/login', function (req, res) {
 		if (!user) {
 			res.status(401).json({ error: 'Invalid username' });
 		}
-		if (req.body.pasusernamesword != user.password) {
+		if (req.body.password != user.password) {
 			req.session.username = req.body.username;
 		  	res.json({ username: req.body.username });
 		} else {
@@ -42,5 +42,26 @@ router.get('/user', function (req, res) {
     res.json({ message: "User not logged in"});
   }
 });
+
+/*
+
+function createUser (initials) {
+	var user = new User({
+		username: initials,
+    	password: initials
+	});
+
+	user.save(function (err) {
+	  if (err) return handleError(err);
+	  // saved!
+	})
+}
+
+createUser("jpk");
+createUser("ema");
+createUser("jkl");
+createUser("fad");
+
+*/
 
 module.exports = router;
