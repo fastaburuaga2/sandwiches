@@ -20,7 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/news2');
+//mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
 mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
 });
