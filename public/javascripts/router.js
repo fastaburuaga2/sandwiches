@@ -13,7 +13,12 @@ function($stateProvider, $urlRouterProvider) {
       url: '/sandwiches/{id}',
 	    templateUrl: '/javascripts/templates/sandwiches.html',
 	    controller: 'SandwichesCtrl'
-	  });
+	  })
+    .state('edit', {
+      url: '/edit/{id}',
+      templateUrl: '/javascripts/templates/edit.html',
+      controller: 'SandwichesCtrl'
+    });
 
   $urlRouterProvider.otherwise('home');
 }]);
