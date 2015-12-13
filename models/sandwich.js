@@ -47,4 +47,4 @@ var Sandwich = new Schema({
     instruction: String
 });
 
-module.exports = mongoose.model('sandwich', Sandwich);
+module.exports = Sandwich;

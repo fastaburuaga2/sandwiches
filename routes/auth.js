@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var User = require('models/user');
 
 router.post('/login', function (req, res) {
   if (req.session.username !== undefined) {
@@ -7,6 +8,10 @@ router.post('/login', function (req, res) {
       res.status(401).json({ error: 'Already logged in' });
       return;
   }
+
+  // query mongoose to check if user exists
+
+  
 
   var users = [
   	{
@@ -41,6 +46,8 @@ router.post('/login', function (req, res) {
   	// send an authentication failure message
   	res.status(401).json({ error: 'Invalid username or password' });
   }
+
+
 });
 
 router.get('/logout', function (req, res) {
