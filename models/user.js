@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Sandwich = require('models/sandwich');
+var Sandwich = require('./sandwich');
 
 var User = new Schema({
   sandwiches: [Sandwich],

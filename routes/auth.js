@@ -1,52 +1,26 @@
 var express = require('express');
 var router = express.Router();
-var User = require('models/user');
+var User = require('../models/user');
 
 router.post('/login', function (req, res) {
-  if (req.session.username !== undefined) {
-      // already logged in, send response and return
-      res.status(401).json({ error: 'Already logged in' });
-      return;
-  }
+	if (req.session.username !== undefined) {
+		// already logged in, send response and return
+		res.status(401).json({ error: 'Already logged in' });
+	}
 
-  // query mongoose to check if user exists
-
-  
-
-  var users = [
-  	{
-  		username : "foo",
-  		password : "123"
-  	},
-  	{
-  		username : "bar",
-  		password : "456"
-  	},
-  	{
-  		username : "baz",
-  		password : "789"
-  	},
-  ];
-
-  // loop through users to see if there was is a matching user
-  var matchingUser = false;
-
-  for (var i = 0; i < users.length; i++) {
-    if (users[i].username == req.body.username && users[i].password == req.body.password) {
-    	matchingUser = true;
-    	break;
-    }
-  };
-
-  if (matchingUser) {
-  	// create session
-  	req.session.username = req.body.username;
-  	res.json({ username: req.body.username });
-  } else {
-  	// send an authentication failure message
-  	res.status(401).json({ error: 'Invalid username or password' });
-  }
-
+  	// query mongoose to check if user exists
+	User.findOne({ username: req.body.username }, function (err, user) {
+		if (err) { res.status(500).json({ error: 'Server Error' }); }
+		if (!user) {
+			res.status(401).json({ error: 'Invalid username' });
+		}
+		if (req.body.pasusernamesword != user.password) {
+			req.session.username = req.body.username;
+		  	res.json({ username: req.body.username });
+		} else {
+			res.status(401).json({ error: 'Invalid password' });
+		}
+	});
 
 });
 
