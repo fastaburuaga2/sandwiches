@@ -26,10 +26,16 @@ mongoose.connection.on('open', function() {
 });
 
 app.use('/api/sandwich', sandwichAPIRoutes);
-app.use('/api', authAPIRoutes);
+app.use('/', authAPIRoutes);
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  if (req.session.username === undefined) {
+    // redirect to login page
+    res.redirect('/login');
+  } else {
+    // send angular app
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
 });
 
 var server = app.listen(3000, function () {
