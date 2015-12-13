@@ -44,7 +44,8 @@ var Sandwich = new Schema({
       bbq: { type: Boolean, required: true },
       ranch: { type: Boolean, required: true }
     },
-    instruction: String
+    instruction: String,
+    name: String
 });
 
 module.exports = Sandwich;

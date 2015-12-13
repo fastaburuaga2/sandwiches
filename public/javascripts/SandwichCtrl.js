@@ -135,42 +135,65 @@ function($scope, $stateParams, SandwichFactory){
 		
 
 		// maybe need some input validation
-		
+		var sandwich = {};
+
+		//BREAD TYPE
 		$scope.selectedBreads = {};
 		angular.forEach($scope.breads, function(bread){
 		    if (!!bread.selected) {$scope.selectedBreads[bread.id]=true;}
 		    else {$scope.selectedBreads[bread.id]=false;}
 		 });
-		console.log($scope.selectedBreads);
+		sandwich.breadtype = $scope.selectedBreads;
+
+
+		//SIZE
+
+		sandwich.halfSize = $scope.size;
+
+		//MEATS
 
 		$scope.selectedMeats = {};
 		angular.forEach($scope.meats, function(meat){
 		    if (!!meat.selected) {$scope.selectedMeats[meat.id]=true;}
 		    else {$scope.selectedMeats[meat.id]=false;}
 		 });
-		console.log($scope.selectedMeats);
+		sandwich.meats = $scope.selectedMeats;
 
+		//vegetables
 		$scope.selectedVegetables = {};
 		angular.forEach($scope.vegetables, function(vegetable){
 		    if (!!vegetable.selected) {$scope.selectedVegetables[vegetable.id]=true;}
 		    else {$scope.selectedVegetables[vegetable.id]=false;}
 		 });
-		console.log($scope.selectedVegetables);
+		sandwich.vegetables = $scope.selectedVegetables;
+
+		//cheese
 
 		$scope.selectedCheese = {};
 		angular.forEach($scope.cheeses, function(cheese){
 		    if (!!cheese.selected) {$scope.selectedCheese[cheese.id]=true;}
 		    else {$scope.selectedCheese[cheese.id]=false;}
 		 });
-		console.log($scope.selectedCheese);
+		sandwich.cheese = $scope.selectedCheese;
+
+		//sauce
+
 
 		$scope.selectedSauce = {};
 		angular.forEach($scope.sauces, function(sauce){
 		    if (!!sauce.selected) {$scope.selectedSauce[sauce.id]=true;}
 		    else {$scope.selectedSauce[sauce.id]=false;}
 		 });
-		console.log($scope.selectedSauce);
+		sandwich.sauce = $scope.selectedSauce;
 
+		//Instractions and name
+
+		sandwich.instractions = $scope.instractions;
+		sandwich.name = $scope.name;
+
+		console.log(sandwich);
+
+		SandwichFactory.createSandwich(sandwich);
 	}
 
 }]);
