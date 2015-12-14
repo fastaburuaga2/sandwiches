@@ -44,7 +44,7 @@ var Sandwich = new Schema({
       bbq: { type: Boolean, required: true },
       ranch: { type: Boolean, required: true }
     },
-    instruction: String,
+    instructions: String,
     name: String
 });
 

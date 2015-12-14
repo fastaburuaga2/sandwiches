@@ -2,7 +2,7 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http', function($http
   var api = {};
 
   api.getAll = function() {
-    return $http.get('api/sandwiches');
+    return $http.get('/api/all');
   };
 
   api.createSandwich = function (sandwich) {
@@ -10,15 +10,15 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http', function($http
   };
 
   api.updateSandwich = function (sandwich) {
-    return $http.put("/login", {sandwich: sandwich});
+    return $http.put("/api/update", {sandwich: sandwich});
   };
 
   api.deleteSandwich = function (sandwichID) {
-    return $http.delete("/delete" + sandwichID);
+    return $http.delete("/api/delete/" + sandwichID);
   };
 
   api.updateOrder = function(sandwichesData) {
-    return $http.put('api/order', {sandwichesData: sandwichesData});
+    return $http.put('/api/order', {sandwichesData: sandwichesData});
   };
 
   return api;

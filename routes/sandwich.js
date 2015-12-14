@@ -52,6 +52,7 @@ router.put('/update', function(req, res) {
 	    }
 	);
 });
+
 /*
 router.get('/:sandwichID', function(req, res) {
   	var sandwichID = req.params.sandwichID;
@@ -68,9 +69,13 @@ router.get('/:sandwichID', function(req, res) {
 
 router.get('/all', function(req, res) {
   	User.findOne({ username: req.session.username }, function (err, user) {
-		if (err) { res.status(500).json({ error: 'Server Error' }); }
+		if (err) { 
+			res.status(500).json({ error: 'Server Error' }); 
+			return 
+		}
 		if (!user) {
 			res.status(401).json({ error: 'Authentication Failed' });
+			return
 		}
 		res.json({ sandwiches: user.sandwiches});
 	});
@@ -101,13 +106,21 @@ router.delete('/delete/:sandwichID', function(req, res) {
   	var sandwichID = req.params.sandwichID;
 
   	User.findOne({ username: req.session.username }, function (err, user) {
-		if (err) { res.status(500).json({ error: 'Server Error' }); }
+		if (err) { 
+			res.status(500).json({ error: 'Server Error' }); 
+			return;
+		}
 		if (!user) {
 			res.status(401).json({ error: 'Authentication Failed' });
+			return;
 		}
 		user.sandwiches.id(sandwichID).remove(); 
 		user.save(function (err) {
-			if (err) res.status(500).json({ error: 'Server Error' });
+			if (err) {
+				res.status(500).json({ error: 'Server Error' });
+				return;
+			}
+			console.log("successfully deleted");
 			res.json({ message: "Sandwich successfully deleted!" });
 		});
 	});

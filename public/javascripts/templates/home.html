@@ -5,33 +5,33 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Arm Your Sandwich
-                <small>Choose one of your custom sandwiches</small>
+                <small>Create, edit, or delete your customized sandwiches</small>
             </h1>
         </div>
     </div>
     <!-- /.row -->
 
-    <!-- Here goes the ng-repeat sandwich in sandwiches -->
     <div class="row">
-        <div class="col-md-3 thumbnail">
-            <img src="http://placehold.it/320x150" alt="">
+        <h4 ng-if="sandwiches.length == 0">No sandwiches to display</h4>
+        <div ng-repeat="sandwich in sandwiches" class="col-md-3 thumbnail">
+            <img class="img-thumbnail" src="{{getSandwichPicture(sandwich)}}" alt="">
             <div class="caption">
-                <h4 class="pull-right">$64.99</h4>
-                <h4><a href="#">Second Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 class="pull-right">{{::sandwich.price}}</h4>
+                <h4>{{::sandwich.name}}</h4>
+                <p>{{::sandwich.instructions}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <a ui-sref="edit({ id: sandwich._id })">Edit</a>
+                </div>
+                <div class="col-md-3">
+                    <a ui-sref='home' ng-click="deleteSandwich(sandwich)">Delete<a>
+                </div>
             </div>
         </div>
-        <div class="col-md-3 thumbnail">
-            <img src="http://placehold.it/320x150" alt="">
-            <div class="caption">
-                <h4 class="pull-right">$64.99</h4>
-                <h4><a href="#">Second Product</a>
-                </h4>
-                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="col-md-3 portfolio-item">
+    </div>
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
             <a class="plus" ng-click="scrollUp()" ui-sref="create">
                 Add new sandwich +
             </a>
