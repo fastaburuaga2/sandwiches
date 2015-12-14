@@ -6,126 +6,46 @@ function($scope, $stateParams, SandwichFactory){
 
 	$scope.breads = [
 		    {id: 'wheat', name: '9-Grain Wheat'},
-		  
 		  	{id: 'oat', name: '9-Grain Honey Oat'},
-		  
-		  {
-		    id: 'italian',
-		    name: 'Italian'
-		  },
-		  {
-		    id: 'parmesano',
-		    name: 'Parmesan Oregano'
-		  }
+		  	{id: 'italian', name: 'Italian'},
+		  	{id: 'parmesano', name: 'Parmesan Oregano'}
 	];
 
-	$scope.meats = [{
-		    id: 'chicken',
-		    name: 'Sweet Onion Chicken Tariyaki'
-		  },
-		  {
-		    id: 'italian',
-		    name: 'Italian B.M.T.'
-		  },
-		  {
-		    id: 'turkey',
-		    name: 'Turkey Breast'
-		  },
-		  {
-		    id: 'tuna',
-		    name: 'Tuna'
-		  },
-		  {
-		    id: 'meatball',
-		    name: 'Meatball Marinara'
-		  },
-		  {
-		    id: 'ham',
-		    name: 'Black Forest Ham'
-		  }
+	$scope.meats = [
+			{id: 'chicken', name: 'Sweet Onion Chicken Tariyaki'},
+		  	{id: 'italian', name: 'Italian B.M.T.' },
+		  	{id: 'turkey', name: 'Turkey Breast'},
+		  	{id: 'tuna', name: 'Tuna'},
+			{id: 'meatball', name: 'Meatball Marinara'},
+		  	{id: 'ham', name: 'Black Forest Ham'}
 	];
 
-	$scope.vegetables = [{
-		    id: 'lettuce',
-		    name: 'Lettuce'
-		  },
-		  {
-		    id: 'tomatoes',
-		    name: 'Tomatoes'
-		  },
-		  {
-		    id: 'cucumbers',
-		    name: 'Cucumbers'
-		  },
-		  {
-		    id: 'pickles',
-		    name: 'Pickles'
-		  },
-		  {
-		    id: 'peppers',
-		    name: 'Peppers'
-		  },
-		  {
-		    id: 'olives',
-		    name: 'Olives'
-		  },
-		  {
-		    id: 'jalapenos',
-		    name: 'Jalapenos'
-		  },
+	$scope.vegetables = [
+			{id: 'lettuce', name: 'Lettuce' },
+			{id: 'tomatoes', name: 'Tomatoes'},
+			{id: 'cucumbers', name: 'Cucumbers'},
+			{id: 'pickles', name: 'Pickles'},
+			{id: 'peppers', name: 'Peppers'},
+			{id: 'olives', name: 'Olives' },
+			{id: 'jalapenos', name: 'Jalapenos'}
 	];
 
-	$scope.cheeses = [{
-		    id: 'swiss',
-		    name: 'Swiss'
-		  },
-		  {
-		    id: 'cheddar',
-		    name: 'Cheddar'
-		  },
-		  {
-		    id: 'american',
-		    name: 'American'
-		  },
-		  {
-		    id: 'mozzarella',
-		    name: 'Mozzarella'
-		  }
+	$scope.cheeses = [
+			{id: 'swiss', name: 'Swiss'},
+		  	{id: 'cheddar', name: 'Cheddar'},
+		  	{id: 'american', name: 'American' },
+		  	{id: 'mozzarella', name: 'Mozzarella'}
 	];
 
-
-	$scope.sauces = [{
-		    id: 'mustard',
-		    name: 'Mustard'
-		  },
-		  {
-		    id: 'onion',
-		    name: 'Onion'
-		  },
-		  {
-		    id: 'mayo',
-		    name: 'Mayo'
-		  },
-		  {
-		    id: 'oliveoil',
-		    name: 'Oliveoil'
-		  },
-		  {
-		    id: 'chilli',
-		    name: 'Chilli'
-		  },
-		  {
-		    id: 'ketchup',
-		    name: 'Ketchup'
-		  },
-		  {
-		    id: 'bbq',
-		    name: 'Bbq'
-		  },
-		  {
-		    id: 'ranch',
-		    name: 'Ranch'
-		  }
+	$scope.sauces = [
+			{id: 'mustard', name: 'Mustard'},
+		  	{id: 'onion', name: 'Onion'},
+		  	{id: 'mayo', name: 'Mayo'},
+		  	{id: 'oliveoil', name: 'Oliveoil'},
+		  	{id: 'chilli', name: 'Chilli'},
+		  	{id: 'ketchup', name: 'Ketchup'},
+		  	{id: 'bbq', name: 'Bbq'},
+		  	{id: 'ranch', name: 'Ranch'}
 	];
 
 	$scope.addSandwich = function(){
@@ -185,7 +105,7 @@ function($scope, $stateParams, SandwichFactory){
 
 		//Instractions and name
 
-		sandwich.instractions = $scope.instractions;
+		sandwich.instructions = $scope.instructions;
 		sandwich.name = $scope.name;
 
 		console.log(sandwich);

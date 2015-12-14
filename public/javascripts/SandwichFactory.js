@@ -36,7 +36,6 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http','$state', funct
         return $http.post("/create", sandwich).success(function(data){
           console.log('Sandwich created succesfully');
           $state.go('home');
-
     });
   };
 

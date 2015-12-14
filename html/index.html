@@ -51,13 +51,19 @@
                     <li>
                         <a class="navbar-opt" ui-sref="sandwiches" ng-click="scrollUp()">Arm Your Sandwich</a>
                     </li>
+                    <li>
+                    <a id="cart-popover" class="btn navbar-opt" data-placement="bottom" title="Shopping Cart">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+                    </a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 		        <li>
-		            <a id="cart-popover" class="btn navbar-opt" data-placement="bottom" title="Shopping Cart">
-		               	<span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-		            </a>
+                    <a id="cart-popover" class="btn navbar-opt" data-placement="bottom">{{username}}</a>
 		        </li>
+                <li>
+                    <a ng-click='logout()' class="btn navbar-opt" data-placement="bottom">Logout</a>
+                </li>
 		      </ul>
             </div>
             <!-- /.navbar-collapse -->

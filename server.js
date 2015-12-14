@@ -26,7 +26,7 @@ mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
 });
 
-app.use('/api/sandwich', sandwichAPIRoutes);
+app.use('/', sandwichAPIRoutes);
 app.use('/', authAPIRoutes);
 
 var server = app.listen(3000, function () {

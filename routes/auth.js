@@ -13,13 +13,20 @@ router.get('/login', function (req, res) {
 	}
 });
 
+router.get('/user', function(req, res) {
+	if(req.session.username!=undefined){
+		var user = req.session.username;
+    res.jsonp(user);  
+	}
+  else{
+    res.jsonp('');  
+  }
+});
+
 router.post('/login', function (req, res) {
 	if (req.session.username !== undefined) {
 		res.redirect('/');
 	}
-
-console.log(req.body.username);
-console.log(req.body.password);
 
 	var user = new User({
 		username: 'fad'	,
@@ -29,18 +36,15 @@ console.log(req.body.password);
 	user.save(function (err) {
 	  if (err) console.log(err);
 	  // saved!
-	  console.log('user created');
 	
 
   	// query mongoose to check if user exists
 	User.findOne({ username: req.body.username }, function (err, user) {
 		if (err) res.redirect('/login');
-		console.log(user);
 		if (user==null) {
 			res.redirect('/login');
 			return;
 		}
-		console.log(req.body.password == user.password);
 
 		if (req.body.password == user.password) {
 			req.session.username = req.body.username;
