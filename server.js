@@ -28,12 +28,13 @@ mongoose.connection.on('open', function() {
 
 app.use('/', sandwichAPIRoutes);
 app.use('/', authAPIRoutes);
-var port = process.env.PORT || server.address().port;
 
-var server = app.listen(port, function () {
+var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
   var port = process.env.PORT || server.address().port;
 
   console.log('Sandwich app listening at http://%s:%s', host, port);
 });
 
+
+module.exports = app;
