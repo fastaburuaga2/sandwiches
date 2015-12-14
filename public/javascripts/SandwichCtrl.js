@@ -1,8 +1,9 @@
 angular.module('sandwiches').controller('SandwichesCtrl', [
 '$scope',
 '$stateParams',
+'$state',
 'SandwichFactory',
-function($scope, $stateParams, SandwichFactory){
+function($scope, $stateParams, $state, SandwichFactory){
 
 	$scope.breads = [
 		    {id: 'wheat', name: '9-Grain Wheat'},
@@ -27,6 +28,7 @@ function($scope, $stateParams, SandwichFactory){
 			{id: 'pickles', name: 'Pickles'},
 			{id: 'peppers', name: 'Peppers'},
 			{id: 'olives', name: 'Olives' },
+			{id: 'onions', name: 'Olives' },
 			{id: 'jalapenos', name: 'Jalapenos'}
 	];
 
@@ -108,9 +110,13 @@ function($scope, $stateParams, SandwichFactory){
 		sandwich.instructions = $scope.instructions;
 		sandwich.name = $scope.name;
 
-		console.log(sandwich);
+		console.log(JSON.stringify(sandwich));
 
-		SandwichFactory.createSandwich(sandwich);
+		SandwichFactory.createSandwich(sandwich)
+			.success(function(data){
+	        	console.log('Sandwich created succesfully');
+	        	$state.go('home');
+	    	});
 	}
 
 }]);

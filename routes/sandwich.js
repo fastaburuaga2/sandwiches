@@ -2,31 +2,34 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var mongoose = require('mongoose');
-//var Sandwich = require('../models/sandwich');
-var Sandwich = mongoose.model('Sandwich');
+var Sandwich = require('../models/sandwich');
 
 // '/api/sandwich/create, object'
 router.post('/create', function(req, res) {
 
-	console.log(req.body);
+	console.log(req.body.sandwich);
   	User.findOne({ username: req.session.username }, function (err, user) {
-		if (err) { res.status(500).json({ error: 'Server Error' }); }
+		if (err) { 
+			res.status(500).json({ error: 'Server Error' }); 
+			console.log('error finding user');
+			return
+		}
 		if (!user) {
 			res.status(401).json({ error: 'Authentication Failed' });
+			return
 		}
 
-		console.log('1');
-		var sandwich = new Sandwich(req.body);
-		console.log('2');
+		// var sandwich = new Sandwich(req.body.sandwich);
 
-		user.sandwiches.push(sandwich);
-		console.log('3');
+		user.sandwiches.push(req.body.sandwich);
 
 		user.save(function (err) {
-		console.log('4');
-
-		  if (err) res.status(500).json({ error: 'Database Error' });
-		  res.json({ message: "Sandwich created!"});
+			if (err) { 
+				res.status(500).json({ error: 'Database Error' }); 
+				console.log('error saving sandwich: ' + err);
+				return
+			}
+		  	res.json({ message: "Sandwich created!"});
 		});
 	});
 });

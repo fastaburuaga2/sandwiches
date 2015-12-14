@@ -1,7 +1,9 @@
 angular.module('sandwiches').config([
 '$stateProvider',
+'$locationProvider',
 '$urlRouterProvider',
-function($stateProvider, $urlRouterProvider) {
+function($stateProvider, $locationProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true).hashPrefix('!');
 
   $stateProvider
     .state('home', {

@@ -48,4 +48,4 @@ var Sandwich = new Schema({
     name: String
 });
 
-module.exports = mongoose.model('Sandwich', Sandwich);
+module.exports = Sandwich;

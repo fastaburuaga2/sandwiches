@@ -28,16 +28,6 @@ router.post('/login', function (req, res) {
 		res.redirect('/');
 	}
 
-	var user = new User({
-		username: 'fad'	,
-    	password: 'fad'
-	});
-
-	user.save(function (err) {
-	  if (err) console.log(err);
-	  // saved!
-	
-
   	// query mongoose to check if user exists
 	User.findOne({ username: req.body.username }, function (err, user) {
 		if (err) res.redirect('/login');
@@ -54,10 +44,7 @@ router.post('/login', function (req, res) {
 		}
 	});
 
-	});
-
 });
-
 
 router.get('/logout', function (req, res) {
     req.session.destroy();
@@ -73,21 +60,5 @@ router.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../html', 'index.html'));
   }
 });
-
-
-function createUser (initials) {
-	var user = new User({
-		username: initials,
-    	password: initials
-	});
-
-	user.save(function (err) {
-	  if (err) return;
-	  // saved!
-	  console.log('user created');
-	})
-}
-
-
 
 module.exports = router;

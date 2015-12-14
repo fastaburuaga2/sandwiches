@@ -33,10 +33,7 @@ angular.module('sandwiches').factory('SandwichFactory', ['$http','$state', funct
   
   api.createSandwich = function (sandwich) {
     //
-        return $http.post("/create", sandwich).success(function(data){
-          console.log('Sandwich created succesfully');
-          $state.go('home');
-    });
+        return $http.post("/create", {sandwich: sandwich});
   };
 
   api.editSandwich = function (username, password) {
