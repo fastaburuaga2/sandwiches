@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/news2');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/news2345');
 //mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
 mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
@@ -28,16 +28,6 @@ mongoose.connection.on('open', function() {
 
 app.use('/api/sandwich', sandwichAPIRoutes);
 app.use('/', authAPIRoutes);
-
-app.get('*', function (req, res) {
-  if (req.session.username === undefined) {
-    // redirect to login page
-    res.redirect('/login');
-  } else {
-    // send angular app
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  }
-});
 
 var server = app.listen(3000, function () {
   var host = server.address().address;

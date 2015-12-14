@@ -6,8 +6,7 @@ var User = new Schema({
 	username: String,
     password: { 
         type: String, 
-        required: true, 
-        select: false 
+        required: true
     },
 	sandwiches: [Sandwich],
 	sanwichescount: { type: Number, default: 0 }
