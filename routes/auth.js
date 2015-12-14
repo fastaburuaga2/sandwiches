@@ -47,6 +47,7 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/logout', function (req, res) {
+	console.log("Trying to logout");
     req.session.destroy();
   	res.redirect('/login');
 });

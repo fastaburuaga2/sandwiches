@@ -4,7 +4,7 @@ var User = require('../models/user');
 var mongoose = require('mongoose');
 var Sandwich = require('../models/sandwich');
 
-// '/api/sandwich/create, object'
+// '/api/create, object'
 router.post('/create', function(req, res) {
 
 	console.log(req.body.sandwich);

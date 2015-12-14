@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="navbar-opt" ui-sref="sandwiches" ng-click="scrollUp()">Arm Your Sandwich</a>
+                        <a class="navbar-opt" ui-sref="create" ng-click="scrollUp()">Create Sandwich</a>
                     </li>
                     <li>
                     <a id="cart-popover" class="btn navbar-opt" data-placement="bottom" title="Shopping Cart">
@@ -66,7 +66,7 @@
                     <a id="cart-popover" class="btn navbar-opt" data-placement="bottom">{{username}}</a>
 		        </li>
                 <li>
-                    <a ng-click='logout()' class="btn navbar-opt" data-placement="bottom">Logout</a>
+                    <a href="/logout" target="_self" class="btn navbar-opt" data-placement="bottom">Logout</a>
                 </li>
 		      </ul>
             </div>

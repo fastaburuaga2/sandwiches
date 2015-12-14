@@ -13,10 +13,4 @@ function($scope, $window, $http, $state){
 	  $(window).scrollTop(0);
 	};
 
-	$scope.logout = function(){
-		$http.get('/logout').success(function(data){
-      		$window.location.reload();
-    	});
-	}
-
 }]);

@@ -5,7 +5,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 
 var sandwichAPIRoutes = require('./routes/sandwich');
-var authAPIRoutes = require('./routes/auth');
+var authRoutes = require('./routes/auth');
 
 var app = express();
 
@@ -26,8 +26,8 @@ mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
 });
 
-app.use('/', sandwichAPIRoutes);
-app.use('/', authAPIRoutes);
+app.use('/api', sandwichAPIRoutes);
+app.use('/', authRoutes);
 
 var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
