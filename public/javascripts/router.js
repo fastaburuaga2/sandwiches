@@ -20,6 +20,11 @@ function($stateProvider, $locationProvider, $urlRouterProvider) {
       url: '/edit/{id}',
       templateUrl: '/javascripts/templates/edit.html',
       controller: 'EditCtrl'
+    })
+    .state('cart', {
+      url: '/cart',
+      templateUrl: '/javascripts/templates/cart.html',
+      controller: 'MainCtrl'
     });
 
   $urlRouterProvider.otherwise('home');
