@@ -51,8 +51,6 @@ function($scope, $stateParams, $state, SandwichFactory){
 	];
 
 	$scope.addSandwich = function(){
-		
-
 		// maybe need some input validation
 		var sandwich = {};
 

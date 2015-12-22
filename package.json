@@ -2,6 +2,9 @@
   "name": "sandwiches",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "0.12.4"
+  },
   "scripts": {
     "start": "node ./server.js"
   },
