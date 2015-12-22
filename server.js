@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/news2345');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
-var MongoDB = mongoose.connect(mongoURI).connection;
+var MongoDB = mongoose.connect(process.env.MONGOLAB_URI).connection;
 MongoDB.on('error', function(err) { console.log(err.message); });
 mongoose.connection.on('open', function() {
     console.log("Connected to Mongoose!");
