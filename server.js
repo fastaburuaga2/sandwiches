@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/news2345');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
+//mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_58m63lsx:cosse626@ds027155.mongolab.com:27155/heroku_58m63lsx');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://heroku_tv8q9g6h:t7v325peckiila40hq9if6ek7s@ds035503.mongolab.com:35503/heroku_tv8q9g6h');
 var MongoDB = mongoose.connect(process.env.MONGOLAB_URI).connection;
 MongoDB.on('error', function(err) { console.log(err.message); });
 mongoose.connection.on('open', function() {
